@@ -20,6 +20,16 @@ describe("Test for add business days", function() {
 	it("Unknown operation sign", function() {
 		expect(moment('2015-4-1', 'YYYY-M-D').addBusinessDay(1, 'unknown')).toBe();
 	});
+	it("mutates the original moment object", function() {
+		var febOne = moment('2016-2-1', 'YYYY-M-D');
+		febOne.addBusinessDay(1);
+		expect(febOne.format('YYYY-M-D')).toBe('2016-2-2');
+	});
+	it("allows for method chaining", function() {
+		var febOne = moment('2016-2-1', 'YYYY-M-D');
+		febOne.addBusinessDay(1).addBusinessDay(2);
+		expect(febOne.format('YYYY-M-D')).toBe('2016-2-4');
+	});
 });
 
 describe("Test for subtract business days", function() {

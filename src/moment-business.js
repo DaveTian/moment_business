@@ -145,26 +145,25 @@ var US_FEDERAL_HOLIDAYS = [
 			window.console && console.error('Unknown sign (' + sign + ').');
 			return;
 		}
-		var date = this.clone();
 		var signal = sign === '+' ? 1 : -1;
 		signal = days < 0 ? signal * -1 : signal;
 		var offset = Math.abs(days);
 
 		if (offset === 0){
 			// If give day is holiday or weekend.
-			while(!date.isBusinessDay()) {
-				date = date.add(signal, 'days');
+			while(!this.isBusinessDay()) {
+				this.add(signal, 'days');
 			}
 		}
 		else {
 			while (offset !== 0) {
-				date = date.add(signal, 'days');
-				if(date.isBusinessDay()) {
+				this.add(signal, 'days');
+				if(this.isBusinessDay()) {
 					offset-- ;
 				}
 			}
 		}
-		return date;
+		return this;
 	};
 
 	/**
@@ -183,8 +182,7 @@ var US_FEDERAL_HOLIDAYS = [
 	 * @returns {moment} - next business day from {moment} *this*
 	 */
 	moment.fn.nextBusinessDay = function() {
-		var date = this.clone();
-		return date.addBusinessDay(1);
+		return this.addBusinessDay(1);
 	};
 
 	/**
@@ -193,8 +191,7 @@ var US_FEDERAL_HOLIDAYS = [
 	 * @returns {moment} - previous business day from {moment} *this*
 	 */
 	moment.fn.previousBusinessDay = function() {
-		var date = this.clone();
-		return date.subtractBusinessDay(1);
+		return this.subtractBusinessDay(1);
 	};
 
 }).call(this);
