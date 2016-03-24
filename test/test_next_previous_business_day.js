@@ -23,6 +23,11 @@ describe("Test for next business days", function() {
     it("Holiday is Weekend", function() {
         expect(moment('2017-1-1', 'YYYY-M-D').nextBusinessDay().format('YYYY-M-D')).toBe('2017-1-3');
     });
+    it("mutates the original moment object", function() {
+        var febOne = moment('2016-2-1', 'YYYY-M-D');
+        febOne.nextBusinessDay();
+        expect(febOne.format('YYYY-M-D')).toBe('2016-2-2');
+    });
 });
 
 
@@ -47,5 +52,10 @@ describe("Test for previous business days", function() {
     });
     it("Tuesday with Monday is holiday", function() {
         expect(moment('2017-1-3', 'YYYY-M-D').previousBusinessDay().format('YYYY-M-D')).toBe('2016-12-30');
+    });
+    it("mutates the original moment object", function() {
+        var febOne = moment('2016-2-1', 'YYYY-M-D');
+        febOne.previousBusinessDay();
+        expect(febOne.format('YYYY-M-D')).toBe('2016-1-29');
     });
 });

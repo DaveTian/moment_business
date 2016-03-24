@@ -1,8 +1,8 @@
-# moment-business (v1.0.1)
+# moment-business (v2.0.0)
 
 momnet-business is an extension library for [Momentjs](http://momentjs.com/), with customiztion under US Federal Holidays and weekends.
 
-## Build Status 
+## Build Status
 [![Circle build status](https://circleci.com/gh/dstyle28/moment_business.svg?style=shield)](https://circleci.com/gh/dstyle28/moment_business)
 
 ## Code Climate Status
@@ -13,25 +13,25 @@ momnet-business is an extension library for [Momentjs](http://momentjs.com/), wi
 
 ##### `holidaysBetween(moment_date)`
 	Find holidays between moment and moment_date
-	@param moment_date: {moment} 
+	@param moment_date: {moment}
 	@return {Array}
 
 ##### `holidayDiff(moment_date)`
 	Calculate number(s) of holidays between moment and moment_date
-	@param moment_date: {moment} 
+	@param moment_date: {moment}
 	@return {int} - postive if moment < moment_date
 	              - negative if moment > moment_date
 	              - 0 if moment = moment_date
-	
+
 ##### `businessDiff(moment_date)`
 	Calculate number(s) of business days between moment and moment_date
-	@param moment_date: {moment} 
+	@param moment_date: {moment}
 	@return {int} - postive if moment < moment_date
 	              - negative if moment > moment_date
 	              - 0 if moment = moment_date
-	              
+
 ##### `isWeekday()`
-	Determine if moment is week day	
+	Determine if moment is week day
 	@return {boolean}
 
 ##### `isBusinessDay()`
